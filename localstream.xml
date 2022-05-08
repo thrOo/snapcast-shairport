@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+<Beta>False</Beta>
+<Category>MediaServer:</Category>
+<Date>2022-05-08</Date>
+<Changes>
+[b]08.05.2022:[/b]Added[br]
+</Changes>
+<Support>http://forums.unraid.net</Support>
+<Name>LocalStream</Name>
+<Description>
+SnapcastServer with shairplay
+</Description>
+<Registry>http://unraid:5000/localstream/</Registry>
+<GitHub>https://github.com/</GitHub>
+<Repository>localhost:5000/localstreams</Repository>
+<BindTime>true</BindTime>
+<Privileged>false</Privileged>
+<Networking>
+  <Mode>host</Mode>
+</Networking>
+</Container>
