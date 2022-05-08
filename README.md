@@ -8,6 +8,13 @@ Needs Host network for now to show up as Airplay-Device
 
 Plan is to add other input possibilities
 
-
+```
 docker build -t local/snapcast-shairport .
 docker run --net host local/snapcast-shairport 
+```
+
+For Unraid Private Apps in Community-Apps put snapcastshairport.xml into
+```
+/boot/config/plugins/community.applications/private/throo
+```
+or whereever your flashdrive and the community.applications folder is
