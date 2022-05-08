@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+    <Repository>throotee/snapcast-shairport</Repository>
+    <Registry>https://hub.docker.com/r/throotee/snapcast-shairport</Registry>
+    <Beta>False</Beta>
+    <Category>MediaServer:</Category>
+    <Date>2022-05-08</Date>
+    <Changes>
+    [b]08.05.2022:[/b]Added[br]
+    </Changes>
+    <Support>http://forums.unraid.net</Support>
+    <Name>Snapcast-Shairport</Name>
+    <Description>
+    SnapcastServer with shairport Sync
+    </Description>
+    <GitHub>https://github.com/thrOo/snapcast-shairport:latest</GitHub>
+    <BindTime>true</BindTime>
+    <Privileged>false</Privileged>
+    <Networking>
+      <Mode>host</Mode>
+    </Networking>
+</Container>
