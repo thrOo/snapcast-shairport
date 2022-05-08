@@ -3,6 +3,7 @@ FROM alpine:edge
 WORKDIR /usr/src/app
 
 COPY snapserver.conf snapserver.conf
+COPY start.sh start.sh
 
 RUN apk -U add \
 	snapcast-server \
@@ -48,7 +49,6 @@ RUN apk --purge del \
 	autoconf \
 	automake \
 	libtool \
-	dbus \
 	alsa-lib-dev \
         libdaemon-dev \
         popt-dev \
@@ -76,5 +76,5 @@ RUN rm -rf  /lib/apk/db/*i /var/cache/apk/*
 
 WORKDIR /usr/src/app
 
-CMD ["snapserver","-c","snapserver.conf"]
+CMD ["bash","start.sh"]
 
