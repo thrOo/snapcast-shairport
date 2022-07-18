@@ -1,6 +1,7 @@
 set -e
 
-rm -rf /var/run/dbus.pid
+rm -f /var/run/dbus.pid
+rm -f /run/dbus/dbus.pid
 #mkdir -p /var/run/dbus
 
 dbus-uuidgen --ensure
