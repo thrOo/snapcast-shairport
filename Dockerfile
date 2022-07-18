@@ -1,31 +1,24 @@
-FROM alpine:edge
+FROM alpine:edge as builder
 
 WORKDIR /usr/src/app
 
-COPY snapserver.conf snapserver.conf
-COPY start.sh start.sh
-
 RUN apk -U add \
-	snapcast-server \
 	git \
 	build-base \
-	bash \
 	autoconf \
-        automake \
-        libtool \
-        dbus \
-        su-exec \
-        alsa-lib-dev \
-        libdaemon-dev \
-        popt-dev \
-        mbedtls-dev \
-        soxr-dev \
-        avahi-dev \
-        libconfig-dev \
-        libsndfile-dev \
-        xmltoman \
-	libgcc \
-        libgc++
+    automake \
+    libtool \
+    dbus \
+    su-exec \
+    alsa-lib-dev \
+    libdaemon-dev \
+    popt-dev \
+    mbedtls-dev \
+    soxr-dev \
+    avahi-dev \
+    libconfig-dev \
+    libsndfile-dev \
+    xmltoman 
 	
 
 RUN git clone https://github.com/mikebrady/shairport-sync.git 
@@ -43,22 +36,20 @@ RUN ./configure \
 RUN make
 RUN make install
 
-RUN apk --purge del \
-	git \
-	build-base \
-	autoconf \
-	automake \
-	libtool \
-	alsa-lib-dev \
-        libdaemon-dev \
-        popt-dev \
-        mbedtls-dev \
-        soxr-dev \
-        avahi-dev \
-        libconfig-dev \
-        libsndfile-dev
+FROM alpine:edge
+WORKDIR /usr/src/app
+
+COPY snapserver.conf snapserver.conf
+COPY start.sh start.sh
+
+
+COPY --from=builder /etc/shairport-sync* /etc/
+COPY --from=builder /usr/local/bin/shairport-sync /usr/local/bin/shairport-sync
 
 RUN apk -U add \
+        snapcast-server\
+        bash \
+        dbus \
         alsa-lib \
         popt \
         glib \
@@ -71,10 +62,7 @@ RUN apk -U add \
         libgcc \
         libgc++
 
-RUN rm -rf  /lib/apk/db/*i /var/cache/apk/*
-
-
-WORKDIR /usr/src/app
+RUN rm -rf  /lib/apk/db/*i /var/cache/apk/* shairport-sync
 
 CMD ["bash","start.sh"]
 
