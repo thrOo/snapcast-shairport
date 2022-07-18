@@ -13,6 +13,12 @@ docker build -t local/snapcast-shairport .
 docker run --net host local/snapcast-shairport 
 ```
 
+```
+ Docker Hub
+ 
+ docker pull throotee/snapcast-shairport
+```
+
 For Unraid Private Apps in Community-Apps put snapcastshairport.xml into
 ```
 /boot/config/plugins/community.applications/private/throo
