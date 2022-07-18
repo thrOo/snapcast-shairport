@@ -21,6 +21,8 @@ RUN apk -U add \
     xmltoman 
 	
 
+
+RUN git clone https://github.com/badaix/snapcast.git 
 RUN git clone https://github.com/mikebrady/shairport-sync.git 
 WORKDIR /usr/src/app/shairport-sync/
 
@@ -42,6 +44,7 @@ WORKDIR /usr/src/app
 COPY snapserver.conf snapserver.conf
 COPY start.sh start.sh
 
+COPY --from=builder /usr/src/app/snapcast/server/etc/snapweb /usr/src/app/snapweb
 
 COPY --from=builder /etc/shairport-sync* /etc/
 COPY --from=builder /usr/local/bin/shairport-sync /usr/local/bin/shairport-sync
