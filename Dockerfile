@@ -42,6 +42,7 @@ FROM alpine:edge
 WORKDIR /usr/src/app
 
 RUN mkdir tmp
+RUN touch tmp/mopidy.fifo
 
 COPY snapserver.conf snapserver.conf
 COPY start.sh start.sh
