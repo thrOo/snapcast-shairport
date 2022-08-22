@@ -41,6 +41,8 @@ RUN make install
 FROM alpine:edge
 WORKDIR /usr/src/app
 
+RUN mkdir tmp
+
 COPY snapserver.conf snapserver.conf
 COPY start.sh start.sh
 

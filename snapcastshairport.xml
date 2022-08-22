@@ -14,9 +14,44 @@
     SnapcastServer with shairport Sync
     </Description>
     <GitHub>https://github.com/thrOo/snapcast-shairport:latest</GitHub>
+    <WebUI>http://[IP]:[PORT:1780]/</WebUI>
+    <Data>
+    <Volume>
+        <HostDir>/mnt/cache/appdata/snapcast-shairport</HostDir>
+        <ContainerDir>/usr/src/app/config</ContainerDir>
+        <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+        <HostDir>/mnt/cache/appdata/snapcast-shairport/tmp</HostDir>
+        <ContainerDir>/usr/src/app/tmp</ContainerDir>
+        <Mode>rw</Mode>
+    </Volume>
+    </Data>
     <BindTime>true</BindTime>
     <Privileged>false</Privileged>
     <Networking>
-      <Mode>host</Mode>
+        <Mode>bridge</Mode>
+        <Publish>
+        <Port>
+            <HostPort/>
+            <ContainerPort>5000</ContainerPort>
+            <Protocol>tcp</Protocol>
+        </Port>
+        <Port>
+            <HostPort/>
+            <ContainerPort>1780</ContainerPort>
+            <Protocol>tcp</Protocol>
+        </Port>
+        <Port>
+            <HostPort/>
+            <ContainerPort>1705</ContainerPort>
+            <Protocol>tcp</Protocol>
+        </Port>
+        <Port>
+            <HostPort/>
+            <ContainerPort>1704</ContainerPort>
+            <Protocol>tcp</Protocol>
+        </Port>
+        </Publish>
     </Networking>
 </Container>
