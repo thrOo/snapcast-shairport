@@ -30,28 +30,6 @@
     <BindTime>true</BindTime>
     <Privileged>false</Privileged>
     <Networking>
-        <Mode>bridge</Mode>
-        <Publish>
-        <Port>
-            <HostPort/>
-            <ContainerPort>5000</ContainerPort>
-            <Protocol>tcp</Protocol>
-        </Port>
-        <Port>
-            <HostPort/>
-            <ContainerPort>1780</ContainerPort>
-            <Protocol>tcp</Protocol>
-        </Port>
-        <Port>
-            <HostPort/>
-            <ContainerPort>1705</ContainerPort>
-            <Protocol>tcp</Protocol>
-        </Port>
-        <Port>
-            <HostPort/>
-            <ContainerPort>1704</ContainerPort>
-            <Protocol>tcp</Protocol>
-        </Port>
-        </Publish>
+        <Mode>host</Mode>
     </Networking>
 </Container>
