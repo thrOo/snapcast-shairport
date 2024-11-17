@@ -1,12 +1,7 @@
-set -e
-
-rm -f /var/run/dbus.pid
-rm -f /run/dbus/dbus.pid
-#mkdir -p /var/run/dbus
-
-dbus-uuidgen --ensure
-dbus-daemon --system
-
-avahi-daemon --daemonize --no-chroot
+#!/bin/sh
+while [ ! -f /var/run/avahi-daemon/pid ]; do
+  echo "Warning: avahi is not running, sleeping for 1 second before trying to start shairport-sync"
+  sleep 1
+done
 
 snapserver -c snapserver.conf
