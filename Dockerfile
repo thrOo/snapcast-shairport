@@ -72,7 +72,7 @@ COPY snapserver.conf snapserver.conf
 COPY start.sh start.sh
 
 
-COPY --from=builder /usr/src/app/snapcast/server/etc/snapweb /usr/src/app/snapweb
+COPY ./snapweb /usr/src/app/snapweb
 
 COPY --from=builder /nqptp/nqptp /usr/local/bin/nqptp
 COPY --from=builder /usr/local/lib/libalac.* /usr/local/lib/
