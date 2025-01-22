@@ -46,8 +46,8 @@ WORKDIR /usr/src/app/shairport-sync/
 RUN autoreconf -fi
 RUN ./configure \
     --sysconfdir=/etc \
-    --with-dbus-interface \
-#    --with-alsa \
+#    --with-dbus-interface \
+    --with-alsa \
     --with-stdout \
     --with-avahi \
     --with-ssl=openssl \
